@@ -14,7 +14,7 @@ Practice on JavaScript Asynchronous
 - Gulp
 
 ## How to Use
-1. Clone the repository: `git clone https://github.com/reem-elbakry/meow-meow-app.git`
+1. Clone the repository: `git clone https://github.com/reem-elbakry/MeowMeowJavaScriptApp.git`
 2. Open the `index.html` file in your web browser.
 3. Enjoy the adorable cat images!
 

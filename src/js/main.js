@@ -21,6 +21,7 @@ async function fetchWithTimeout(resource, options = {}) {
 async function fetchCatsData() {
     try {
         const response = await fetchWithTimeout('https://api.thecatapi.com/v1/images/search?limit=8&breed_ids=beng&api_key=live_DPgbJpjNWbrAu2xinnvSziQZAJeXyee7x7Adouk6C54t7VrGFoeYgey1lUqFWub8', 'get', {timeout: 6000});
+        console.log(response);
         return response;
     } catch (error) {
         console.error('Error fetching cats:', error);
@@ -40,7 +41,7 @@ function loadCatImage(url) {
 async function loadCatsImages() {
     try {
         const cats = await fetchCatsData(); //(3) [{…}, {…}, {…}]{breads: [{weight, id, name}], url}
-        const imagesPromises = cats.map((cat) => loadCatImage(cat.url));
+        const imagesPromises = cats?.map((cat) => loadCatImage(cat.url));
         const images = await Promise.all(imagesPromises);
         images.forEach(image => createCatCardElement(image));
     } catch (error) {
