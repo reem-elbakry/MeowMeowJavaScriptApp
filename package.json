@@ -1,10 +1,10 @@
 {
-  "name": "meowvoting",
+  "name": "meow",
   "version": "1.0.0",
-  "description": "meow voting app",
+  "description": "meow meow app",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "gulp"
   },
   "author": "Reem Elbakry",
   "license": "ISC",
@@ -14,10 +14,8 @@
     "browser-sync": "^2.29.3",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
-    "gulp-clean-css": "^4.3.0",
     "gulp-eslint": "^6.0.0",
     "gulp-htmlmin": "^5.0.1",
-    "gulp-if": "^3.0.0",
     "gulp-rename": "^2.0.0",
     "gulp-sourcemaps": "^3.0.0",
     "gulp-uglify": "^3.0.2",

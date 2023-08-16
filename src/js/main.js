@@ -1,6 +1,7 @@
 //Get Elements
-let catsContainer = document.getElementById('cats-container');
+const catsContainer = document.getElementById('cats-container');
 
+const API_KEY = "live_DPgbJpjNWbrAu2xinnvSziQZAJeXyee7x7Adouk6C54t7VrGFoeYgey1lUqFWub8";
 
 //Make Request
 async function fetchWithTimeout(resource, options = {}) {
@@ -20,7 +21,7 @@ async function fetchWithTimeout(resource, options = {}) {
 //Get Cats Data
 async function fetchCatsData() {
     try {
-        const response = await fetchWithTimeout('https://api.thecatapi.com/v1/images/search?limit=8&breed_ids=beng&api_key=live_DPgbJpjNWbrAu2xinnvSziQZAJeXyee7x7Adouk6C54t7VrGFoeYgey1lUqFWub8', 'get', {timeout: 6000});
+        const response = await fetchWithTimeout(`https://api.thecatapi.com/v1/images/search?limit=8&breed_ids=beng&api_key=${API_KEY}`, 'get', {timeout: 6000});
         console.log(response);
         return response;
     } catch (error) {
@@ -103,4 +104,5 @@ function createCatCardElement(url) {
 
 
 loadCatsImages();
+
 

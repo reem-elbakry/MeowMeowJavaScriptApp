@@ -9,6 +9,7 @@ const rename = require('gulp-rename');
 const sourcemaps = require('gulp-sourcemaps');
 const browserSync = require('browser-sync').create();
 
+
 // Process HTML task
 function processHTML() {
   return gulp.src('src/*.html')
@@ -17,6 +18,8 @@ function processHTML() {
     .pipe(gulp.dest('dist'))
     .pipe(browserSync.stream());
 }
+
+
 
 // Process JS task
 function processJS() {
@@ -44,5 +47,6 @@ function watch() {
   gulp.watch('src/js/*.js', processJS);
 }
 
-// Default task
+
+// Default task 
 gulp.task('default', gulp.series(processHTML, processJS, watch));
