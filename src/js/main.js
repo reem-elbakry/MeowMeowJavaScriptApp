@@ -1,7 +1,7 @@
 //Get Elements
 const catsContainer = document.getElementById('cats-container');
 
-const API_KEY = "live_DPgbJpjNWbrAu2xinnvSziQZAJeXyee7x7Adouk6C54t7VrGFoeYgey1lUqFWub8";
+const API_KEY = "YOUR_API_KEY";
 
 //Make Request
 async function fetchWithTimeout(resource, options = {}) {
