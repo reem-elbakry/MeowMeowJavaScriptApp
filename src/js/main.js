@@ -43,8 +43,8 @@ async function loadCatsImages() {
     try {
         const cats = await fetchCatsData(); //(3) [{…}, {…}, {…}]{breads: [{weight, id, name}], url}
         const imagesPromises = cats?.map((cat) => loadCatImage(cat.url));
-        const images = await Promise.all(imagesPromises);
-        images.forEach(image => createCatCardElement(image));
+        const images = await Promise.allSettled(imagesPromises);
+        images.forEach(image => createCatCardElement(image.value));
     } catch (error) {
         console.error(error);
     } 
