@@ -20,7 +20,7 @@ Practice on JavaScript Asynchronous
 1. Clone the repository: `git clone https://github.com/reem-elbakry/MeowMeowJavaScriptApp.git`.
 2. Get your free API_KEY from (https://api.thecatapi.com/) and add its value in `src/js/main.js`.
 3. Make sure you have Node.js and NPM installed on your machine. 
-- You can check if you have them installed by running the following commands in your terminal:
+- You can check if you have them installed by running the following commands in your terminal:  <br /> 
    `node -v` and `npm -v`
 - If you don't have Node.js and npm installed, check (https://nodejs.org).
 - Install the Gulp CLI globally on your machine using `npm install -g gulp-cli`.
