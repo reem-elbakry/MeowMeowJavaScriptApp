@@ -3,7 +3,7 @@ Practice on JavaScript Asynchronous
 
 ## Features
 - Fetches cat images' URLs from the Cat API using the `fetch API`.
-- Uses `Promise.all()` to ensure the successful loading of the cat images.
+- Uses `Promise.allSettled()` to ensure the loading of the cat images.
 - Dynamically creates image elements and appends them to the HTML document.
 - Uses `Gulp` to automate the build process. 
     - Minifying and transpiling the HTML and JavaScript files. 
