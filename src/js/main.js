@@ -1,7 +1,7 @@
 //Get Elements
 const catsContainer = document.getElementById('cats-container');
 
-const API_KEY = "YOUR_API_KEY";
+const API_KEY = "live_DPgbJpjNWbrAu2xinnvSziQZAJeXyee7x7Adouk6C54t7VrGFoeYgey1lUqFWub8";
 
 //Make Request
 async function fetchWithTimeout(resource, options = {}) {
@@ -42,9 +42,9 @@ function loadCatImage(url) {
 async function loadCatsImages() {
     try {
         const cats = await fetchCatsData(); //(3) [{…}, {…}, {…}]{breads: [{weight, id, name}], url}
-        const imagesPromises = cats?.map((cat) => loadCatImage(cat.url));
-        const images = await Promise.all(imagesPromises);
-        images.forEach(image => createCatCardElement(image));
+        const imagesPromises = cats.map((cat) => loadCatImage(cat.url));
+        const images = await Promise.allSettled(imagesPromises);
+        images.forEach(image => createCatCardElement(image.value));
     } catch (error) {
         console.error(error);
     } 
@@ -52,7 +52,7 @@ async function loadCatsImages() {
 
 
 //Create HTML Elements
-function createCatCard() {
+function createCatCardHTMLElement() {
     let catCardContainer = document.createElement('div');
     catCardContainer.classList.add('col-lg-3', 'col-md-6', 'mb-4', 'mb-lg-0', 'mt-4');
 
@@ -65,35 +65,18 @@ function createCatCard() {
     return [catCardContainer, catCard, catCardBody]; 
 }
 
-function createCatCardImage(catCardImage) {
+function createCatCardImageHTMLElement(catCardImage) {
     catCardImage.classList.add('img-fluid', 'd-inline-block', 'w-100', 'h-100', 'mw-100', 'mh-100','card-img-top');
     catCardImage.alt = 'meow';
 
     return catCardImage;
 }
 
-function createcatCardActionIcon() {
-    let catCardActionContainer = document.createElement('div');
-    catCardActionContainer.classList.add('p-4');
-
-    let catCardActionIcon = new Image(20, 20);
-    catCardActionIcon.classList.add('img-fluid', 'd-block', 'mx-auto', 'm-3');
-    catCardActionIcon.src = 'img/meow.png';
-    catCardActionIcon.alt = 'meow';
-    catCardActionIcon.id = 'voteIcon';
-
-    catCardActionContainer.appendChild(catCardActionIcon);
-
-    return catCardActionIcon;
-}
-
 //Append all elements to HTML
-function createCatCardElement(url) {
-    let [catCardContainer, catCard, catCardBody] = createCatCard();
-    // let catCardActionIcon = createcatCardActionIcon();
+function createCatCardElementHTMLElement(url) {
+    let [catCardContainer, catCard, catCardBody] = createCatCardHTMLElement();
 
-    catCardBody.appendChild(createCatCardImage(url));
-    // catCardBody.appendChild(catCardActionIcon);
+    catCardBody.appendChild(createCatCardImageHTMLElement(url));
 
     catCard.appendChild(catCardBody);
 
