@@ -52,7 +52,7 @@ async function loadCatsImages() {
 
 
 //Create HTML Elements
-function createCatCardHTMLElement() {
+function createCatCard() {
     let catCardContainer = document.createElement('div');
     catCardContainer.classList.add('col-lg-3', 'col-md-6', 'mb-4', 'mb-lg-0', 'mt-4');
 
@@ -65,18 +65,35 @@ function createCatCardHTMLElement() {
     return [catCardContainer, catCard, catCardBody]; 
 }
 
-function createCatCardImageHTMLElement(catCardImage) {
+function createCatCardImage(catCardImage) {
     catCardImage.classList.add('img-fluid', 'd-inline-block', 'w-100', 'h-100', 'mw-100', 'mh-100','card-img-top');
     catCardImage.alt = 'meow';
 
     return catCardImage;
 }
 
-//Append all elements to HTML
-function createCatCardElementHTMLElement(url) {
-    let [catCardContainer, catCard, catCardBody] = createCatCardHTMLElement();
+function createcatCardActionIcon() {
+    let catCardActionContainer = document.createElement('div');
+    catCardActionContainer.classList.add('p-4');
 
-    catCardBody.appendChild(createCatCardImageHTMLElement(url));
+    let catCardActionIcon = new Image(20, 20);
+    catCardActionIcon.classList.add('img-fluid', 'd-block', 'mx-auto', 'm-3');
+    catCardActionIcon.src = 'img/meow.png';
+    catCardActionIcon.alt = 'meow';
+    catCardActionIcon.id = 'voteIcon';
+
+    catCardActionContainer.appendChild(catCardActionIcon);
+
+    return catCardActionIcon;
+}
+
+//Append all elements to HTML
+function createCatCardElement(url) {
+    let [catCardContainer, catCard, catCardBody] = createCatCard();
+    // let catCardActionIcon = createcatCardActionIcon();
+
+    catCardBody.appendChild(createCatCardImage(url));
+    // catCardBody.appendChild(catCardActionIcon);
 
     catCard.appendChild(catCardBody);
 
