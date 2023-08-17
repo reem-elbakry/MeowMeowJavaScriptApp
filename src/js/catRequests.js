@@ -1,0 +1,38 @@
+//imports
+import { fetchDataWithTimeout } from "./httpRequests";
+import { createCardElement } from "./htmlElements";
+
+
+const catAPIKey = "live_DPgbJpjNWbrAu2xinnvSziQZAJeXyee7x7Adouk6C54t7VrGFoeYgey1lUqFWub8";
+
+//Get Cats Data
+async function fetchCatImagesData() {
+    try {
+        const response = await fetchDataWithTimeout(`https://api.thecatapi.com/v1/images/search?limit=8&breed_ids=beng&api_key=${catAPIKey}`, {timeout: 6000});
+        return response;
+    } catch (error) {
+        console.error('Error fetching cats:', error);
+    }
+}
+
+//Load cat image
+function loadImage(url) {
+    return new Promise((resolve, reject) => {
+        const image = new Image();
+        image.src = url;
+        image.onload = () => resolve(image);
+        image.onerror = () => reject(new Error(`Failed to load image from ${url}`));
+    });
+}
+
+//Load cat images in parallel
+export async function loadCatImages() {
+    try {
+        const cats = await fetchCatImagesData(); //(3) [{…}, {…}, {…}]{breads: [{weight, id, name}], url}
+        const imagesPromises = cats?.map((cat) => loadImage(cat.url));
+        const images = await Promise.allSettled(imagesPromises);
+        images.forEach(image => createCardElement(image.value));
+    } catch (error) {
+        console.error(error);
+    } 
+}

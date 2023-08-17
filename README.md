@@ -26,7 +26,7 @@ Practice on JavaScript Asynchronous
 - Install the Gulp CLI globally on your machine using `npm install -g gulp-cli`.
 - Navigate to the root directory of the project using the terminal 
 - Install the project dependencies by running `npm install`
-- Once the dependencies are installed, you can run the project using `gulp` command or `npm start`.
+- Once the dependencies are installed, you can run the project using `gulp build` or `npm start`.
 4. You can ignore last step and just Open the `index.html` file in your web browser. :laughing:
 4. Enjoy the adorable cat images!
 

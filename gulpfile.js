@@ -7,6 +7,7 @@ const uglify = require('gulp-uglify');
 const useref = require('gulp-useref');
 const rename = require('gulp-rename');
 const sourcemaps = require('gulp-sourcemaps');
+const replace = require('gulp-replace');
 const browserSync = require('browser-sync').create();
 
 
@@ -20,7 +21,6 @@ function processHTML() {
 }
 
 
-
 // Process JS task
 function processJS() {
   return gulp.src('src/js/*.js')
@@ -30,6 +30,7 @@ function processJS() {
     .pipe(babel())
     .pipe(uglify())
     .pipe(rename({ suffix: '.min' }))
+    .pipe(replace(/\.\/\w+/g, '$&.min.js')) 
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('dist/js'))
     .pipe(browserSync.stream());
@@ -49,4 +50,4 @@ function watch() {
 
 
 // Default task 
-gulp.task('default', gulp.series(processHTML, processJS, watch));
+gulp.task('build', gulp.series(processHTML, processJS, watch));
