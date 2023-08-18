@@ -30,7 +30,7 @@ function processJS() {
     .pipe(babel())
     .pipe(uglify())
     .pipe(rename({ suffix: '.min' }))
-    .pipe(replace(/\.\/(\w+)\.js/g, './$1.min.js')) 
+    .pipe(replace(/\.\/\w+/g, '$&.min.js')) 
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('dist/js'))
     .pipe(browserSync.stream());
