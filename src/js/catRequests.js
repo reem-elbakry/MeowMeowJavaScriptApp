@@ -1,6 +1,6 @@
 //imports
-import { fetchDataWithTimeout } from "./httpRequests";
-import { createCardElement } from "./htmlElements";
+import { fetchDataWithTimeout } from "./httpRequests.js";
+import { createCardElement } from "./htmlElements.js";
 
 
 const catAPIKey = "YOUR_API_KEY";
