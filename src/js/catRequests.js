@@ -3,7 +3,7 @@ import { fetchDataWithTimeout } from "./httpRequests";
 import { createCardElement } from "./htmlElements";
 
 
-const catAPIKey = "live_DPgbJpjNWbrAu2xinnvSziQZAJeXyee7x7Adouk6C54t7VrGFoeYgey1lUqFWub8";
+const catAPIKey = "YOUR_API_KEY";
 
 //Get Cats Data
 async function fetchCatImagesData() {
