@@ -1,4 +1,4 @@
-import { loadCatImages } from "./catRequests";
+import { loadCatImages } from "./catRequests.js";
 
 
 

@@ -8,6 +8,7 @@ const useref = require('gulp-useref');
 const rename = require('gulp-rename');
 const sourcemaps = require('gulp-sourcemaps');
 const replace = require('gulp-replace');
+const concat = require('gulp-concat');
 const browserSync = require('browser-sync').create();
 
 
@@ -20,7 +21,6 @@ function processHTML() {
     .pipe(browserSync.stream());
 }
 
-
 // Process JS task
 function processJS() {
   return gulp.src('src/js/*.js')
@@ -29,8 +29,9 @@ function processJS() {
     .pipe(sourcemaps.init())
     .pipe(babel())
     .pipe(uglify())
+    .pipe(concat('bundle.js'))
+    .pipe(replace(/import\{(.*?)\}from"\.\/(\w+)\.js";|export/g, ''))
     .pipe(rename({ suffix: '.min' }))
-    .pipe(replace(/\.\/\w+/g, '$&.min.js')) 
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('dist/js'))
     .pipe(browserSync.stream());
