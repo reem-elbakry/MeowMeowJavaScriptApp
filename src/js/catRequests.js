@@ -3,7 +3,9 @@ import { fetchDataWithTimeout } from "./httpRequests.js";
 import { createCardElement } from "./htmlElements.js";
 
 
-const catAPIKey = "YOUR_API_KEY";
+const catAPIKey = process.env.catAPIKey;
+
+console.log(catAPIKey);
 
 //Get Cats Data
 async function fetchCatImagesData() {

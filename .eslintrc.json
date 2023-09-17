@@ -1,3 +1,29 @@
-{
-    "extends": "eslint:recommended"
-}
+// {
+  //   "parserOptions": {
+  //     "ecmaVersion": 6,
+  //     "sourceType": "module"
+  //   },
+  //   "env": {
+  //     "es6": true
+  //   },
+  //   "rules": {
+  //     "no-var": 2,
+  //     "prefer-let": 2,
+  //     "const": 2,
+  //     "require-yield": 2,
+  //     "import/no-unresolved": 2,
+  //     "import/named": 2
+  //   },
+  //   "plugins": ["import"]
+  // }
+  
+  
+  //0 off 1 warn 2 error
+
+
+            // {
+          //   loader: 'eslint-loader',
+          //   options: {
+          //     configFile: '.eslintrc.json',
+          //   },
+          // },

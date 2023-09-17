@@ -1,3 +1,6 @@
 node_modules
-webpack.config.js
+gulpfile.js
+gulpfile_instructions.txt
+.eslintrc.json
+.env
 todo.txt

@@ -52,3 +52,4 @@ function watch() {
 
 // Default task 
 gulp.task('build', gulp.series(processHTML, processJS, watch));
+
