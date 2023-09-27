@@ -9,6 +9,7 @@ Practice on JavaScript Asynchronous and Webpack
     - Minifying the code and assets 
     - Transpiling the JavaScript files. 
     - Provide a live development server.
+- Uses localStorage to save user preference. 
 
 ## Technologies Used
 - JavaScript Asynchronous
@@ -18,7 +19,7 @@ Practice on JavaScript Asynchronous and Webpack
 
 ## How to Use
 1. Clone the repository: `git clone https://github.com/reem-elbakry/MeowMeowJavaScriptApp.git`.
-2. Get your free API_KEY from [The cat API]((https://thecatapi.com/)) and add its value in your `.env`.
+2. Get your free API_KEY from [The cat API](https://thecatapi.com/) and add its value in your `.env`.
 3. Make sure you have Node.js and NPM installed on your machine. 
 - You can check if you have them installed by running the following commands in your terminal:  <br /> 
    `node -v` and `npm -v`
@@ -26,7 +27,7 @@ Practice on JavaScript Asynchronous and Webpack
 - Navigate to the root directory of the project using the terminal 
 - Install the project dependencies by running `npm install`
 - Once the dependencies are installed, you can run the project using `npm run dev` and build it using `npm run build`.
-4. Enjoy the adorable cat images!
+4. Enjoy the adorable cat images! or simply [click here](https://reem-elbakry.github.io/MeowMeowJavaScriptApp/)
 
 ## Credits
 
