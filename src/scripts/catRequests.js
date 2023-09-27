@@ -1,11 +1,9 @@
 //imports
 import { fetchDataWithTimeout } from "./httpRequests.js";
-import { createCardElement } from "./htmlElements.js";
+import { appendElements } from "./htmlElements.js";
 
 
 const catAPIKey = process.env.catAPIKey;
-
-console.log(catAPIKey);
 
 //Get Cats Data
 async function fetchCatImagesData() {
@@ -33,7 +31,7 @@ export async function loadCatImages() {
         const cats = await fetchCatImagesData(); //(3) [{…}, {…}, {…}]{breads: [{weight, id, name}], url}
         const imagesPromises = cats?.map((cat) => loadImage(cat.url));
         const images = await Promise.allSettled(imagesPromises);
-        images.forEach(image => createCardElement(image.value));
+        images.forEach(image => appendElements(image.value)); //send image element
     } catch (error) {
         console.error(error);
     } 
